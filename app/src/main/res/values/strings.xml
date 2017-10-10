@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SocialIntegrationsSample</string>
+    <string name="facebook_app_id">798347617015199</string>
+    <string name="fb_login_protocol_scheme">fb798347617015199</string>
+    <string name="users_cover_pic">Users Cover Pic</string>
+    <string name="gmail_account">Gmail Account</string>
+    <string name="fb_account">Facebook Account</string>
+    <string name="wrong_case_selection">Wrong case</string>
+    <string name="login_social_media">Login Social Media</string>
+    <string name="fabric_API_key">72ce78292b3d07d2b101f815a078679a7999f266</string>
+</resources>

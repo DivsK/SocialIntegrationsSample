@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "76599287668",
+    "project_id": "socialintegrationssample"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:76599287668:android:111bd5864e540661",
+        "android_client_info": {
+          "package_name": "com.kellton.socialintegrationssample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "76599287668-foo18cj02iqrujlkfro7fusu2qum3ndt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kellton.socialintegrationssample",
+            "certificate_hash": "7689d5682a172ede3f02689f7da4ec68d0100111"
+          }
+        },
+        {
+          "client_id": "76599287668-ccbi54u9a8k6mqbfc7mrak3o4njhi3im.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzapv75KpHjZp4QQ-m_hXaEuJuPX2XXyQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

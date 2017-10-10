@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kellton.socialintegrationssample.TwitterActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        />
+
+    <TextView
+        android:id="@+id/tv_profile_name"
+        android:layout_width="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_height="?attr/actionBarSize"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"/>
+    <TextView
+        android:id="@+id/tv_profile_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_profile_name"
+        android:gravity="center"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+        android:textColor="@android:color/darker_gray"/>
+
+</RelativeLayout>
