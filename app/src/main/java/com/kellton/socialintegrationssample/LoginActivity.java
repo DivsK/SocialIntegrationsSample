@@ -41,9 +41,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private CallbackManager mFacebookCallbackManager;
     private LoginButton mFacebookSignInButton;
-    private Intent mIntent;
     private static final int GOOGLE_SIGN_IN = 9001;
-    private static final int FACEBOOK_SIGN_IN = 9002;
 
     private GoogleApiClient mGoogleApiClient;
     private TwitterLoginButton mTwitterSignInButton;
@@ -53,6 +51,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        initializeSdk();
+        setContentView(R.layout.activity_login);
+        initUI();
+        setUpToolBar();
+
+    }
+
+    private void initializeSdk() {
         FacebookSdk.sdkInitialize(getApplicationContext());
         mFacebookCallbackManager = CallbackManager.Factory.create();
 
@@ -62,35 +68,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 .debug(true)
                 .build();
         Twitter.initialize(config);
-
-        setContentView(R.layout.activity_login);
-        initUI();
-        setUpToolBar();
-
     }
 
     private void initUI() {
-        mIntent=new Intent(LoginActivity.this, FacebookActivity.class);
-
         mFacebookSignInButton = (LoginButton) findViewById(R.id.facebook_login_button);
         mFacebookSignInButton.setOnClickListener(this);
-        LoginManager.getInstance().registerCallback(mFacebookCallbackManager,
-                new FacebookCallback<LoginResult>() {
-                    @Override
-                    public void onSuccess(LoginResult loginResult) {
-                        startActivity(mIntent);
-                    }
-
-                    @Override
-                    public void onCancel() {
-                        // App code
-                    }
-
-                    @Override
-                    public void onError(FacebookException exception) {
-                        // App code
-                    }
-                });
 
         SignInButton googleSignInButton = (SignInButton) findViewById(R.id.google_sign_in_button);
         googleSignInButton.setSize(SignInButton.SIZE_ICON_ONLY);
@@ -143,6 +125,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.facebook_login_button:
+                logInFacebook();
                 mFacebookSignInButton.setReadPermissions("email","public_profile");
                 break;
             case R.id.google_sign_in_button:
@@ -151,6 +134,27 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             default:
                 break;
         }
+    }
+
+    private void logInFacebook() {
+        LoginManager.getInstance().registerCallback(mFacebookCallbackManager,
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+                        Intent intent = new Intent(LoginActivity.this, FacebookActivity.class);
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        // App code
+                    }
+
+                    @Override
+                    public void onError(FacebookException exception) {
+                        // App code
+                    }
+                });
     }
 
     /**
